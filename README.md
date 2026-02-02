@@ -1,4 +1,4 @@
-# Scraped Wiki Generator
+# Repo Wiki
 
 A Claude Code skill for generating comprehensive, multi-page project wikis from repository analysis.
 
@@ -18,8 +18,8 @@ This skill generates professional, multi-page Markdown wikis for any repository 
 This is a Claude Code skill. Place the skill directory in your `.codex/skills/` folder:
 
 ```bash
-mkdir -p ~/.codex/skills/scraped-wiki-generator
-cp -r repo-wiki/* ~/.codex/skills/scraped-wiki-generator/
+mkdir -p ~/.codex/skills/repo-wiki
+cp -r repo-wiki/* ~/.codex/skills/repo-wiki/
 ```
 
 ## Usage
@@ -27,13 +27,13 @@ cp -r repo-wiki/* ~/.codex/skills/scraped-wiki-generator/
 Once installed, invoke the skill in Claude Code:
 
 ```
-/scraped-wiki-generator 为这个项目生成中文文档
+/repo-wiki 为这个项目生成中文文档
 ```
 
 Or in English:
 
 ```
-/scraped-wiki-generator Generate documentation for this project
+/repo-wiki Generate documentation for this project
 ```
 
 ### Helper Script
@@ -41,7 +41,7 @@ Or in English:
 Use the scaffold script to create the wiki structure:
 
 ```bash
-python .codex/skills/scraped-wiki-generator/scripts/scaffold_open_docs.py --query "生成中文文档"
+python .codex/skills/repo-wiki/scripts/scaffold_open_docs.py --query "生成中文文档"
 ```
 
 ## Output Structure
@@ -59,7 +59,7 @@ The skill generates documentation in `./.open_docs/`:
 ## File Structure
 
 ```
-scraped-wiki-generator/
+repo-wiki/
 ├── SKILL.md                      # Skill definition and workflow
 ├── scripts/
 │   └── scaffold_open_docs.py     # Helper script for scaffolding

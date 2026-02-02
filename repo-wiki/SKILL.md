@@ -30,6 +30,7 @@ If the user asks to reproduce third‑party content verbatim and you are not sur
 - Output directory: `./.open_docs`
 - Always create `./.open_docs/index.md` linking to all pages in order.
 - Create one Markdown file per page.
+- Each page should include a navigation line that links back to `index.md` and (when applicable) the previous/next page.
 
 ## Workflow
 
@@ -58,6 +59,7 @@ If the user asks to reproduce third‑party content verbatim and you are not sur
 - Keep page order stable (follow the template `id` order).
 - File naming: prefix with the template `id` to keep ordering (e.g., `1-概述.md`, `2-架构设计.md`).
 - Ensure internal links in `index.md` point to the generated filenames.
+- Add a navigation line near the top of each page that links to `index.md` and previous/next pages (when present).
 - Include a "Relevant source files" block (prefer the `<details><summary>...</summary> ... </details>` style used in the template).
 
 ## Optional helper script (deterministic dump)

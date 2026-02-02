@@ -129,6 +129,10 @@ PAGE_TITLES: Dict[str, Dict[str, str]] = {
 UI_TEXT: Dict[str, Dict[str, str]] = {
     "en": {
         "index_title": "Wiki Index",
+        "nav_label": "Navigation",
+        "nav_index": "Wiki Index",
+        "nav_prev": "Previous",
+        "nav_next": "Next",
         "relevant_files_summary": "Relevant source files",
         "scaffold_note_1": "Scaffold generated from the bundled wiki template.",
         "scaffold_note_2": "Fill this page with content grounded in the current repository, following the template checklists.",
@@ -136,6 +140,10 @@ UI_TEXT: Dict[str, Dict[str, str]] = {
     },
     "zh": {
         "index_title": "Wiki 目录",
+        "nav_label": "导航",
+        "nav_index": "Wiki 目录",
+        "nav_prev": "上一页",
+        "nav_next": "下一页",
         "relevant_files_summary": "相关源码文件",
         "scaffold_note_1": "此页为模板脚手架自动生成。",
         "scaffold_note_2": "请基于当前仓库的代码/配置/文档补全内容，并遵循模板清单。",
@@ -235,6 +243,22 @@ def plan_to_filename(plan: PagePlan) -> str:
     return f"{prefix}-{title}.md"
 
 
+def build_nav_line(plans: List[PagePlan], index: int, ui: Dict[str, str]) -> str:
+    parts: List[str] = []
+    parts.append(f"[{ui['nav_index']}](index.md)")
+    if index > 0:
+        prev_plan = plans[index - 1]
+        prev_title = prev_plan.title or prev_plan.page_id or "Untitled"
+        prev_file = plan_to_filename(prev_plan)
+        parts.append(f"{ui['nav_prev']}: [{prev_title}]({prev_file})")
+    if index + 1 < len(plans):
+        next_plan = plans[index + 1]
+        next_title = next_plan.title or next_plan.page_id or "Untitled"
+        next_file = plan_to_filename(next_plan)
+        parts.append(f"{ui['nav_next']}: [{next_title}]({next_file})")
+    return f"**{ui['nav_label']}**: " + " | ".join(parts)
+
+
 def write_scaffold(output_dir: Path, plans: List[PagePlan], force: bool, lang: str) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -242,7 +266,7 @@ def write_scaffold(output_dir: Path, plans: List[PagePlan], force: bool, lang: s
     ui = UI_TEXT.get(lang) or UI_TEXT.get(base) or UI_TEXT["en"]
 
     index_lines = [f"# {ui['index_title']}", ""]
-    for plan in plans:
+    for idx, plan in enumerate(plans):
         title = plan.title or plan.page_id or "Untitled"
         filename = plan_to_filename(plan)
         index_lines.append(f"- [{title}]({filename})")
@@ -250,10 +274,13 @@ def write_scaffold(output_dir: Path, plans: List[PagePlan], force: bool, lang: s
         out_path = output_dir / filename
         if out_path.exists() and not force:
             continue
+        nav_line = build_nav_line(plans=plans, index=idx, ui=ui)
         out_path.write_text(
             "\n".join(
                 [
                     f"# {title}",
+                    "",
+                    nav_line,
                     "",
                     f"> {ui['scaffold_note_1']}",
                     f"> {ui['scaffold_note_2']}",

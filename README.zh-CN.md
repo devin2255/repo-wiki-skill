@@ -1,6 +1,6 @@
-# Scraped Wiki Generator
+# Repo Wiki
 
-Claude Code 技能：基于仓库分析生成完整、多页面项目 Wiki。
+Claude Code 技能：基于仓库分析生成完整、多页面的项目 Wiki。
 
 ## 概述
 
@@ -18,8 +18,8 @@ Claude Code 技能：基于仓库分析生成完整、多页面项目 Wiki。
 这是一个 Claude Code 技能。将技能目录放到你的 `.codex/skills/` 目录中：
 
 ```bash
-mkdir -p ~/.codex/skills/scraped-wiki-generator
-cp -r repo-wiki/* ~/.codex/skills/scraped-wiki-generator/
+mkdir -p ~/.codex/skills/repo-wiki
+cp -r repo-wiki/* ~/.codex/skills/repo-wiki/
 ```
 
 ## 使用方法
@@ -27,13 +27,13 @@ cp -r repo-wiki/* ~/.codex/skills/scraped-wiki-generator/
 安装后，在 Claude Code 中调用该技能：
 
 ```
-/scraped-wiki-generator 为这个项目生成中文文档
+/repo-wiki 为这个项目生成中文文档
 ```
 
 或使用英文：
 
 ```
-/scraped-wiki-generator Generate documentation for this project
+/repo-wiki Generate documentation for this project
 ```
 
 ### 辅助脚本
@@ -41,7 +41,7 @@ cp -r repo-wiki/* ~/.codex/skills/scraped-wiki-generator/
 使用 scaffold 脚本创建 Wiki 结构：
 
 ```bash
-python .codex/skills/scraped-wiki-generator/scripts/scaffold_open_docs.py --query "生成中文文档"
+python .codex/skills/repo-wiki/scripts/scaffold_open_docs.py --query "生成中文文档"
 ```
 
 ## 输出结构
@@ -59,7 +59,7 @@ python .codex/skills/scraped-wiki-generator/scripts/scaffold_open_docs.py --quer
 ## 文件结构
 
 ```
-scraped-wiki-generator/
+repo-wiki/
 ├── SKILL.md                      # 技能定义与流程
 ├── scripts/
 │   └── scaffold_open_docs.py     # 用于生成结构的辅助脚本

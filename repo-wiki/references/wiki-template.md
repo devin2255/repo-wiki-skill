@@ -7,6 +7,7 @@ This template is derived from a scraped product wiki and is bundled so the skill
 - Output directory: `./.open_docs`
 - One page per file, plus `./.open_docs/index.md`
 - Use the page ordering by `id`
+- Every page should include a navigation line linking to `index.md` and previous/next pages
 - Every page includes a “Relevant source files” block (prefer the `<details>` style)
 - Prefer diagrams (Mermaid) for architecture and flows
 - If something is not present in the repo, write: “Not found in repo” / “Not applicable”
