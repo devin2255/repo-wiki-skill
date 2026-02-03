@@ -15,16 +15,20 @@ Claude Code 技能：基于仓库分析生成完整、多页面的项目 Wiki。
 
 ## 安装
 
-这是一个 Claude Code 技能。将技能目录放到你的 `.codex/skills/` 目录中：
+这是一个可用于多种客户端的技能，请放到对应目录：
 
 ```bash
+mkdir -p ~/.claude/skills/repo-wiki
+cp -r repo-wiki/* ~/.claude/skills/repo-wiki/
 mkdir -p ~/.codex/skills/repo-wiki
 cp -r repo-wiki/* ~/.codex/skills/repo-wiki/
+mkdir -p ~/.opencode/skill/repo-wiki
+cp -r repo-wiki/* ~/.opencode/skill/repo-wiki/
 ```
 
 ## 使用方法
 
-安装后，在 Claude Code 中调用该技能：
+安装后，在支持的客户端中调用该技能（Claude Code/Codex/OpenCode）：
 
 ```
 /repo-wiki 为这个项目生成中文文档
@@ -38,10 +42,10 @@ cp -r repo-wiki/* ~/.codex/skills/repo-wiki/
 
 ### 辅助脚本
 
-使用 scaffold 脚本创建 Wiki 结构：
+使用安装路径中的 scaffold 脚本创建 Wiki 结构：
 
 ```bash
-python .codex/skills/repo-wiki/scripts/scaffold_open_docs.py --query "生成中文文档"
+python <skill_dir>/scripts/scaffold_open_docs.py --query "生成中文文档"
 ```
 
 ## 输出结构
@@ -72,7 +76,7 @@ repo-wiki/
 ## 运行要求
 
 - Python 3.8+
-- Claude Code
+- 支持的客户端（Claude Code / Codex / OpenCode）
 
 ## 许可证
 

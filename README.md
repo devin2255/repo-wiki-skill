@@ -15,16 +15,20 @@ This skill generates professional, multi-page Markdown wikis for any repository 
 
 ## Installation
 
-This is a Claude Code skill. Place the skill directory in your `.codex/skills/` folder:
+这是一个可用于多种客户端的技能，请放到对应目录：
 
 ```bash
+mkdir -p ~/.claude/skills/repo-wiki
+cp -r repo-wiki/* ~/.claude/skills/repo-wiki/
 mkdir -p ~/.codex/skills/repo-wiki
 cp -r repo-wiki/* ~/.codex/skills/repo-wiki/
+mkdir -p ~/.opencode/skill/repo-wiki
+cp -r repo-wiki/* ~/.opencode/skill/repo-wiki/
 ```
 
 ## Usage
 
-Once installed, invoke the skill in Claude Code:
+Once installed, invoke the skill in your client (Claude Code/Codex/OpenCode):
 
 ```
 /repo-wiki 为这个项目生成中文文档
@@ -38,10 +42,10 @@ Or in English:
 
 ### Helper Script
 
-Use the scaffold script to create the wiki structure:
+Use the scaffold script from the installed path to create the wiki structure:
 
 ```bash
-python .codex/skills/repo-wiki/scripts/scaffold_open_docs.py --query "生成中文文档"
+python <skill_dir>/scripts/scaffold_open_docs.py --query "生成中文文档"
 ```
 
 ## Output Structure
@@ -72,7 +76,7 @@ repo-wiki/
 ## Requirements
 
 - Python 3.8+
-- Claude Code
+- A supported client (Claude Code, Codex, OpenCode)
 
 ## License
 
