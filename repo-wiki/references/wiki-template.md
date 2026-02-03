@@ -1,6 +1,6 @@
-# Wiki Template (bundled)
+# Repo Wiki Template (bundled)
 
-This template is derived from a scraped product wiki and is bundled so the skill can produce a **complete, professional** project wiki even when the scraped JSON is not available at runtime.
+This template is derived from a scraped product wiki and is bundled with the repo-wiki skill so it can produce a **complete, professional** project wiki even when the scraped JSON is not available at runtime.
 
 ## Core conventions
 

@@ -1,11 +1,11 @@
 ---
-name: scraped-wiki-generator
-description: Generate a complete, professional multi-page project wiki for the current repository, using a bundled template derived from a scraped product wiki. Output language and page titles/filenames must match the user's query language. Output goes to ./.open_docs.
+name: repo-wiki
+description: Generate a complete, professional multi-page project wiki for the current repository, using a bundled template (derived from a scraped product wiki). Output language and page titles/filenames must match the user's query language. Output goes to ./.open_docs.
 ---
 
-# Scraped Wiki Generator
+# Repo Wiki
 
-Generate a multi-page Markdown wiki for the **current repository**, using a built-in wiki template derived from a scraped product wiki.
+Generate a multi-page Markdown wiki for the **current repository**, using a built-in template derived from a scraped product wiki.
 
 You do **not** need the scraped JSON at runtime: the template structure is bundled in this skill under `references/`.
 
@@ -66,7 +66,7 @@ If the user asks to reproduce third‑party content verbatim and you are not sur
 
 Use this when you want to scaffold `./.open_docs` (page files + index) from the **built-in template** (no JSON required), then fill in content based on the current repo:
 
-`python .codex/skills/scraped-wiki-generator/scripts/scaffold_open_docs.py --query "<user query>"`
+`python <skill_dir>/scripts/scaffold_open_docs.py --query "<user query>"`
 
 If you have a scraped JSON page plan (optional), pass `--input <path-to-json>` to extract the page list (the wiki content is still written from the current repo).
 

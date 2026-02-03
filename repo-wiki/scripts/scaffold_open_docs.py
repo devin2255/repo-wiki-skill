@@ -302,12 +302,12 @@ def write_scaffold(output_dir: Path, plans: List[PagePlan], force: bool, lang: s
 
 def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Scaffold .open_docs from a scraped wiki JSON page plan (no paragraph copying)."
+        description="Scaffold .open_docs using the repo-wiki template or a scraped wiki JSON page plan (no paragraph copying)."
     )
     parser.add_argument(
         "--input",
         default="",
-        help="Optional path to scraped wiki JSON (used only to extract page list). If omitted, uses bundled template page list.",
+        help="Optional path to scraped wiki JSON (used only to extract page list). If omitted, uses bundled repo-wiki template page list.",
     )
     parser.add_argument(
         "--output",

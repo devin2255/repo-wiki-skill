@@ -1,6 +1,6 @@
-# Scraped Wiki JSON format (style reference)
+# Repo Wiki JSON format (style reference)
 
-This skill uses a scraped product wiki JSON as a **style/structure reference** (page taxonomy and writing patterns), not as the factual source for the current repo.
+The repo-wiki skill uses a scraped product wiki JSON as a **style/structure reference** (page taxonomy and writing patterns), not as the factual source for the current repo.
 
 It expects a JSON object like:
 
